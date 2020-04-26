@@ -26,13 +26,14 @@ dependencies:
   # http request
   http: ^0.12.0+4
   # async package to add additional Cancellable operations
-  async: ^2.4.1
+  async: ^2.4.0
   # get it
   get_it: ^4.0.1
   # provider
   provider: ^4.0.5
   # provider architecture
   provider_architecture: ^1.1.1+1
+  firebase_auth: ^0.16.0
 
 dev_dependencies:
   flutter_test:
