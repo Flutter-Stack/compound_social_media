@@ -34,6 +34,11 @@ dependencies:
   # provider architecture
   provider_architecture: ^1.1.1+1
   firebase_auth: ^0.16.0
+  cloud_firestore: ^0.13.5
+  # stacked: ^1.2.2
+  cached_network_image: ^2.1.0+1
+  firebase_storage: ^3.1.5
+  image_picker: ^0.6.5+2
 
 dev_dependencies:
   flutter_test:
