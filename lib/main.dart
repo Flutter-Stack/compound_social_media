@@ -1,8 +1,10 @@
-import 'package:compound/ui/views/signup_view.dart';
+// import 'package:compound/ui/views/signup_view.dart';
+import 'package:compound/services/analytics_service.dart';
+import 'package:compound/ui/views/startup_view.dart';
 import 'package:flutter/material.dart';
 import 'package:compound/services/navigation_service.dart';
 import 'package:compound/services/dialog_service.dart';
-import 'package:compound/ui/views/login_view.dart';
+// import 'package:compound/ui/views/login_view.dart';
 import 'managers/dialog_manager.dart';
 import 'ui/router.dart';
 import 'locator.dart';
@@ -19,6 +21,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Compound',
+      navigatorObservers: [
+        locator<AnalyticsService>().getAnalyticsObserver(),
+      ],      
       builder: (context, child) => Navigator(
         key: locator<DialogService>().dialogNavigationKey,
         onGenerateRoute: (settings) => MaterialPageRoute(
@@ -32,7 +37,8 @@ class MyApp extends StatelessWidget {
               fontFamily: 'Open Sans',
             ),
       ),
-      home: SignUpView(),
+      // home: SignUpView(),
+      home: StartUpView(),
       onGenerateRoute: generateRoute,
     );
   }

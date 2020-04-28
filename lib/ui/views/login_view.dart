@@ -13,7 +13,6 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelProvider<LoginViewModel>.withConsumer(
-      viewModel: LoginViewModel(),
       builder: (context, model, child) => Scaffold(
           backgroundColor: Colors.white,
           body: Padding(
@@ -44,8 +43,12 @@ class LoginView extends StatelessWidget {
                   children: [
                     BusyButton(
                       title: 'Login',
+                      busy: model.busy,
                       onPressed: () {
-                        // TODO: Perform firebase login here
+                        model.login(
+                          email: emailController.text,
+                          password: passwordController.text,
+                        );
                       },
                     )
                   ],
@@ -54,12 +57,12 @@ class LoginView extends StatelessWidget {
                 TextLink(
                   'Create an Account if you\'re new.',
                   onPressed: () {
-                    // TODO: Handle navigation
+                    model.navigateToSignUp();
                   },
                 )
               ],
             ),
-          )),
+          )), viewModelBuilder: () => LoginViewModel(),
     );
   }
 }
